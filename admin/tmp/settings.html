@@ -1,0 +1,54 @@
+<div class="row">
+    <form action="http://localhost/klinikweb/admin/farmasi/saveSettings?t=b67a9c8d1dae" method="POST">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Pengaturan Modul Farmasi</h3>
+                </div>
+            	  <div class="panel-body">
+                    <div class="form-group">
+                        <label>Depo Rawat Jalan</label>
+                        <select name="farmasi[deporalan]" class="form-control">
+                                                      <option value="-" >-</option>
+                                                      <option value="ANG" >Anggrek</option>
+                                                      <option value="APT" selected>Apotek</option>
+                                                      <option value="GF" >Gudang Farmasi</option>
+                                                  </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Depo IGD</label>
+                        <select name="farmasi[igd]" class="form-control">
+                                                      <option value="-" >-</option>
+                                                      <option value="ANG" >Anggrek</option>
+                                                      <option value="APT" selected>Apotek</option>
+                                                      <option value="GF" >Gudang Farmasi</option>
+                                                  </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Depo Rawat Inap</label>
+                        <select name="farmasi[deporanap]" class="form-control">
+                                                      <option value="-" >-</option>
+                                                      <option value="ANG" >Anggrek</option>
+                                                      <option value="APT" selected>Apotek</option>
+                                                      <option value="GF" >Gudang Farmasi</option>
+                                                  </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Gudang Farmasi</label>
+                        <select name="farmasi[gudang]" class="form-control">
+                                                      <option value="-" >-</option>
+                                                      <option value="ANG" >Anggrek</option>
+                                                      <option value="APT" selected>Apotek</option>
+                                                      <option value="GF" >Gudang Farmasi</option>
+                                                  </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Keterangan Etiket</label>
+                      <input type="text" class="form-control" name="farmasi[keterangan_etiket]" value="">
+                  </div>
+                  <input type="submit" name="save" class="btn btn-primary" value="Simpan" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

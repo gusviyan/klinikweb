@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Default</h3>
+            </div>
+            <div class="panel-body">
+                <div class="theme-preview">
+                    <img src="http://localhost/klinikweb/themes/default/preview.png" class="img-responsive">
+                </div>
+            </div>
+            <div class="panel-footer">
+                <table class="table">
+                    <tr>
+                        <th>Pembuat</th>
+                        <td>Basoro <a href="mailto:info@mlite.id">info@mlite.id</a></td>
+                    </tr>
+                    <tr>
+                        <th>Versi</th>
+                        <td>1.1</td>
+                    </tr>
+                </table>
+                                <a href="#" class="btn btn-primary btn-block btn-xs disabled">Aktif</a>
+                            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Sunting</h3>
+            </div>
+            <div class="panel-body">
+                        		<form name="selectFile" action="/klinikweb/admin/settings/theme/default?t=b67a9c8d1dae" method="GET">
+                    <div class="form-group">
+            			<select name="file" class="form-control" onchange="window.location.href=this.value;" data-use-search="true">
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/4c8e1325a0f0cce1483ed1cde72f6a0d?t=b67a9c8d1dae" >/themes/default/canvas.html</option>
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/014b6597d17692781facd504655fab2b?t=b67a9c8d1dae" >/themes/default/fullpage.html</option>
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/99aff51abc80bfd6e435df7e53e39e0a?t=b67a9c8d1dae" >/themes/default/homepage.html</option>
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/f25e7108d15b27369cb58ad9cc4a7bba?t=b67a9c8d1dae" >/themes/default/index.html</option>
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/f9923b98a91a4c48cf55ee0c16701c42?t=b67a9c8d1dae" >/themes/default/news.html</option>
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/980ddc30fde85f8c9374f24217089e79?t=b67a9c8d1dae" >/themes/default/post.html</option>
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/8ead33cc7231135ea662e6a75eff96a0?t=b67a9c8d1dae" >/themes/default/inc/footer.html</option>
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/1ea92a33c85bfca113394ddc10e01b3d?t=b67a9c8d1dae" >/themes/default/inc/header.html</option>
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/ea2e4d301a6bc9bb2881fdd7ce4a3012?t=b67a9c8d1dae" >/themes/default/css/style.css</option>
+            				            					<option value="http://localhost/klinikweb/admin/settings/theme/default/8b2e0a49e4d6c0bf78fae540d97e17ce?t=b67a9c8d1dae" >/themes/default/js/theme.js</option>
+            				            			</select>
+            			<input type="hidden" name="t" value="b67a9c8d1dae">
+                    </div>
+        		</form>
+
+                <form name="editor" action="/klinikweb/admin/settings/theme/default?t=b67a9c8d1dae" method="POST">
+                    <div class="form-group">
+                        <textarea name="content" rows="20" class="form-control" id="editor">*bracket**dollar*page.content*/bracket*
+</textarea>
+                        <script>$("#editor").markItUp(markItUp_html).highlight({whiteSpace: 'pre', lang: 'html'});</script>
+                    </div>
+                    <input type="submit" name="save" class="btn btn-primary" value="Simpan" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,174 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <!-- <span class="pull-right"><a href="http://localhost/klinikweb/admin/farmasi/mutasi?t=b67a9c8d1dae" class="btn btn-xs btn-info" role="tab">Aktif</a> <a href="http://localhost/klinikweb/admin/farmasi/mutasi/0?t=b67a9c8d1dae" class="btn btn-xs btn-info" role="tab">Tidak Aktif</a></span> -->
+                <h3 class="panel-title">Kelola Mutasi Obat</h3>
+            </div>
+            <div class="panel-body">
+    					<div class="table-responsive no-margin">
+    						<table class="table table-striped no-margin dataTables" width="100%">
+    							<thead>
+    								<tr>
+                      <th>Kode Barang</th>
+      								<th>Nama Barang</th>
+                      <th class="text-right">Harga Dasar</th>
+                      <th class="text-right">Harga Beli</th>
+                      <th>Expired</th>
+                      <th>Lokasi & Stok</th>
+    									<th class="text-right">Aksi</th>
+    								</tr>
+    							</thead>
+    							<tbody>
+            						    								    								<tr>
+    									<td style="vertical-align:top">B00001</td>
+                      <td style="vertical-align:top">Paracetamol 500mg</td>
+                      <td style="vertical-align:top" class="text-right">5.000</td>
+                      <td style="vertical-align:top" class="text-right">5.000</td>
+                      <td style="vertical-align:top">2024-06-10</td>
+                      <td style="vertical-align:top">
+                                                <ul>
+                          <li>
+                            Lokasi: Apotek (APT) - Stok: 100 
+                                                      </li>
+                        </ul>
+                                              </td>
+    									<td style="vertical-align:top" class="text-right">
+                        <a href="#set_stok" data-kode_brng="B00001" class="btn btn-success btn-xs">
+    											<i class="fa fa-pencil"></i> <span class="hidden-xs">Mutasi</span>
+    										</a>
+                        <!--                           <a href="http://localhost/klinikweb/admin/farmasi/delete/B00001?t=b67a9c8d1dae" class="btn btn-danger btn-xs" data-confirm="Yakin ingin menghapus?">
+      											<i class="fa fa-close"></i> <span class="hidden-xs">Delete</span>
+      										</a>
+                         -->
+    									</td>
+    								</tr>
+    								    								    							</tbody>
+    						</table>
+    					</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+  // ketika tombol hapus ditekan
+  //$("#display").on("click",".set_dpjp", function(event){
+  $('a[href="#set_stok"]').click(function(event){
+    var baseURL = mlite.url + '/' + mlite.admin;
+    event.preventDefault();
+    var url = baseURL + '/farmasi/setstok?t=' + mlite.token;
+    var kode_brng = $(this).attr("data-kode_brng");
+
+    var set_stok = ''
+        + '<div class="form-group">'
+        + '<label for="status_keluar">Pilih bangsal</label>'
+        + '<select name="kd_bangsal" id="kd_bangsal" class="form-control" data-use-dimmer="false">'
+        + ''
+        + '<option value="-">-</option>'
+        + ''
+        + '<option value="ANG">Anggrek</option>'
+        + ''
+        + '<option value="APT">Apotek</option>'
+        + ''
+        + '<option value="GF">Gudang Farmasi</option>'
+        + ''
+        + '</select>'
+        + '</div>'
+        + '<div class="form-group">'
+        + '<label for="status_keluar">Stok</label>'
+        + '<input name="stok" id="stok" class="form-control">'
+        + '</div>'
+        + '';
+
+    // tampilkan dialog konfirmasi
+    bootbox.dialog({
+      message: set_stok,
+      title: 'Set Stok Data Barang',
+      buttons: {
+        main: {
+          label: 'Simpan',
+          className: 'btn-primary',
+          callback() {
+            var kd_bangsal = $('#kd_bangsal').val();
+            var stok = $('#stok').val();
+            //console.log(tgl_keluar);
+            $.post(url, {
+              kode_brng: kode_brng,
+              kd_bangsal: kd_bangsal,
+              stok: stok,
+            } ,function(data) {
+              alert('Set Stok telah disimpan!');
+              window.location.href = baseURL + '/farmasi/mutasi?t=' + mlite.token;
+            });
+          }
+        }
+      }
+    });
+    $('select').selectator();
+    event.stopPropagation();
+    return false;
+  });
+  $('a[href="#re_stok"]').click(function(event){
+    var baseURL = mlite.url + '/' + mlite.admin;
+    event.preventDefault();
+    var url = baseURL + '/farmasi/restok?t=' + mlite.token;
+    var kode_brng = $(this).attr("data-kode_brng");
+    var kd_bangsal = $(this).attr("data-kd_bangsal");
+
+    var set_stok = ''
+        + '<div class="form-group">'
+        + '<label for="status_keluar">Re-Stok ke Gudang</label>'
+        + '<input name="stok" id="stok" class="form-control" placeholder="Jumlah re-stok">'
+        + '</div>'
+        + '';
+
+    // tampilkan dialog konfirmasi
+    bootbox.dialog({
+      message: set_stok,
+      title: 'Re-Stok Data Barang',
+      buttons: {
+        main: {
+          label: 'Simpan',
+          className: 'btn-primary',
+          callback() {
+            var stok = $('#stok').val();
+            //console.log(tgl_keluar);
+            $.post(url, {
+              kode_brng: kode_brng,
+              kd_bangsal: kd_bangsal,
+              stok: stok,
+            } ,function(data) {
+              alert('Set Stok telah disimpan!');
+              window.location.href = baseURL + '/farmasi/mutasi?t=' + mlite.token;
+            });
+          }
+        }
+      }
+    });
+    $('select').selectator();
+    event.stopPropagation();
+    return false;
+  });  
+  $(document).ready(function(){
+    $('.dataTables').DataTable({
+      "order": [[ 1, "asc" ]],
+      "pageLength": 20,
+      "pagingType": "full",
+      "language": {
+        "paginate": {
+          "first": "&laquo;",
+          "last": "&raquo;",
+          "previous": "‹",
+          "next":     "›"
+        },
+        "search": "",
+        "searchPlaceholder": "Search..."
+      },
+      "lengthChange": false,
+      "scrollX": true,
+      dom: "<<'data-table-title'><'datatable-search'f>><'row'<'col-sm-12'tr>><<'pmd-datatable-pagination' l i p>>"
+    });
+    var t = $(".dataTables").DataTable().rows().count();
+    $(".data-table-title").html('<h3 style="display:inline;float:left;margin-top:0;" class="hidden-xs">Total: ' + t + '</h3>');
+  });
+</script>
